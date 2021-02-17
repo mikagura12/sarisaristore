@@ -1,0 +1,38 @@
+[
+  {
+    "item": "Potato Fries",
+    "price": 7,
+    "category": "snack",
+    "isFavorite": false
+  },
+  {
+    "item": "Magic Sarap",
+    "price": 5,
+    "category": "seasonings",
+    "isFavorite": false
+  },
+  {
+    "item": "Chippy",
+    "price": 14,
+    "category": "snack",
+    "isFavorite": false
+  },
+  {
+    "item": "Patis",
+    "price": 10,
+    "category": "snack",
+    "isFavorite": false
+  },
+  {
+    "item": "Tuyo",
+    "price": 10,
+    "category": "snack",
+    "isFavorite": false
+  },
+  {
+    "item": "Crump",
+    "price": 22,
+    "category": "snack",
+    "isFavorite": false
+  }
+]

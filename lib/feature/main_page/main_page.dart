@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sarisaristore/core/widget/component/item_container/itemcontainer_widget.dart';
+import 'package:sarisaristore/core/widget/appbar/sliverappbar_widget.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/responsive_widget.dart';
+import 'package:sarisaristore/core/widget/content/content_container.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -17,13 +18,11 @@ class MainPage extends StatelessWidget {
         return Container(
           child: Column(
             children: [
-              Container(
-                height: constraints.height * .25,
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.blue,
-                height: constraints.height * .75,
+              Column(
+                children: [
+                  CustomSliverAppBar(constraints),
+                  CustomContent(constraints)
+                ],
               ),
             ],
           ),
