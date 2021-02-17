@@ -11,15 +11,16 @@ class SariStoreLocalDataSource implements ISariStoreLocalDataSource {
   @override
   Future<List<Paninda>> getItems() async {
     try {
-      var url = 'https://textuploader.com/18xbi/raw';
+      /*  var url = 'https://textuploader.com/18xbi/raw';
       var response = await http.get(url);
+      final remoteResult = json.decode(response.body); */
+
       String data = await rootBundle.loadString('assets/data/paninda.json');
-      final remoteResult = json.decode(response.body);
       final localResult = json.decode(data); // Testing Purpose
 
       print('------------- Inserting Json -------------');
       return List<Paninda>.from(
-        remoteResult.map(
+        localResult.map(
           (i) {
             return Paninda.fromJson(i);
           },
