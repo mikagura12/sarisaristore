@@ -15,7 +15,7 @@ class SariStoreLocalDataSource implements ISariStoreLocalDataSource {
       var response = await http.get(url);
       String data = await rootBundle.loadString('assets/data/paninda.json');
       final remoteResult = json.decode(response.body);
-      final localResult = json.decode(data);
+      final localResult = json.decode(data); // Testing Purpose
 
       print('------------- Inserting Json -------------');
       return List<Paninda>.from(
