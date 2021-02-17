@@ -5,8 +5,8 @@ import 'package:sarisaristore/core/model/paninda.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
 
 class CustomItemContainer extends StatelessWidget {
-  CustomItemContainer(this.constraints, {this.items});
-  final Paninda items;
+  CustomItemContainer(this.constraints, {@required this.item});
+  final Paninda item;
 
   final SizeInformation constraints;
   @override
@@ -27,14 +27,14 @@ class CustomItemContainer extends StatelessWidget {
             scale: 10,
           ),
           Text(
-            '',
+            '${item.item}',
             style: kLoraFont(
                 color: kItemTitleColor,
                 fontSize: 15,
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            '',
+            '${item.price}.00 Php',
             style: kMontserratFont(
               color: kItemCategoryColor,
               fontSize: 10,

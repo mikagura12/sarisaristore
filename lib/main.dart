@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'core/localsource/localsource.dart';
-import 'core/model/paninda.dart';
+import 'core/source/source.dart';
 import 'core/repositories/paninda_repository.dart';
 import 'feature/main_page/main_model.dart';
 import 'feature/main_page/main_page.dart';
@@ -24,18 +23,12 @@ class _MyAppState extends State<MyApp> {
     print('------------- Initializing -------------');
     sariStoreLocalDataSource = SariStoreLocalDataSource();
     sariSariStoreRepository = SariSariStoreRepository(sariStoreLocalDataSource);
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: ChangeNotifierProvider(
         create: (_) => MainModel(sariSariStoreRepository),
         child: MainPage(),
