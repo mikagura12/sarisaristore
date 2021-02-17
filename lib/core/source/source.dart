@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
 
@@ -11,21 +11,22 @@ class SariStoreLocalDataSource implements ISariStoreLocalDataSource {
   @override
   Future<List<Paninda>> getItems() async {
     try {
+      var url = 'https://textuploader.com/18xbi/raw';
+      var response = await http.get(url);
       String data = await rootBundle.loadString('assets/data/paninda.json');
-      final result = json.decode(data);
+      final remoteResult = json.decode(response.body);
+      final localResult = json.decode(data);
 
+      print('------------- Inserting Json -------------');
       return List<Paninda>.from(
-        result.map(
+        remoteResult.map(
           (i) {
-            print('------------- Mapping -------------');
-            print(i);
             return Paninda.fromJson(i);
           },
         ),
       );
     } catch (e) {
-      print('------------- Catching -------------');
-      print(e);
+      print('------------- Error Detected -------------\n $e');
       return [];
     }
   }

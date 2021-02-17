@@ -20,19 +20,19 @@
   {
     "item": "Patis",
     "price": 10,
-    "category": "snack",
-    "isFavorite": false
+    "category": "seasonings",
+    "isFavorite": true
   },
   {
     "item": "Tuyo",
     "price": 10,
-    "category": "snack",
-    "isFavorite": false
+    "category": "",
+    "isFavorite": true
   },
   {
     "item": "Crump",
     "price": 22,
-    "category": "snack",
+    "category": "",
     "isFavorite": false
   }
 ]

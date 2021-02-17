@@ -8,15 +8,35 @@ class MainModel extends ChangeNotifier {
   final ISariSariStoreRepository sariSariStoreRepository;
 
   final List<Paninda> cacheStore = [];
+  List<Paninda> snacksCategory = [];
+  List<Paninda> seasoningsCategory = [];
+  List<Paninda> othersCategory = [];
+  List<Paninda> isFavorite = [];
 
   Future<List<Paninda>> getItems() async {
     if (cacheStore.isEmpty) {
-      print('------------- Updating List -------------');
       var data = await sariSariStoreRepository.getItems();
       cacheStore.addAll(data);
     }
-    print('------------- Updating List -------------');
-
+    notifyListeners();
     return cacheStore;
+  }
+
+  categoryFilter(Paninda data) {
+    if (data.category.toLowerCase() == 'snack') {
+      snacksCategory.add(data);
+      _isFavorite(data);
+    } else if (data.category.toLowerCase() == 'seasonings') {
+      seasoningsCategory.add(data);
+      _isFavorite(data);
+    } else {
+      othersCategory.add(data);
+      _isFavorite(data);
+    }
+  }
+
+  _isFavorite(Paninda data) {
+    if (data.isFavorite) isFavorite.add(data);
+    return data;
   }
 }
