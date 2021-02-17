@@ -6,7 +6,7 @@ var kItemTitleCategoryFont = GoogleFonts.montserrat();
 TextStyle kLoraFont(
     {Color color, double fontSize, FontWeight fontWeight, double wordSpacing}) {
   return GoogleFonts.lora(
-      color: color,
+      color: color ?? Colors.blue,
       fontSize: fontSize ?? 25,
       fontWeight: fontWeight ?? FontWeight.normal,
       wordSpacing: wordSpacing ?? 0);

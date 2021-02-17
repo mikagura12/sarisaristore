@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
 import 'package:sarisaristore/core/widget/appbar/sliverappbar_widget.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/responsive_widget.dart';
@@ -37,10 +38,32 @@ class _MainPageState extends State<MainPage> {
                 child: Column(
                   children: [
                     CustomSliverAppBar(constraints),
-                    CustomContent(
-                      constraints,
-                      items: data,
-                    )
+                    (data.isEmpty)
+                        ? Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircularProgressIndicator(
+                                  strokeWidth: 3,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  'Loading Data',
+                                  style: kLoraFont(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        : CustomContent(
+                            constraints,
+                            items: data,
+                          )
                   ],
                 ),
               );
