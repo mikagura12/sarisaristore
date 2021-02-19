@@ -29,9 +29,13 @@ class CustomItemContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Image.network(
-                    '$imageDir${item.image}.png',
-                    scale: 10,
-                  ),
+                        '$imageDir${item.image}.png',
+                        scale: 10,
+                      ) ??
+                      Image.network(
+                        '${imageDir}no_image.png',
+                        scale: 10,
+                      ),
                   Text(
                     '${item.item}',
                     style: kLoraFont(
