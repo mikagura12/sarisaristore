@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sarisaristore/core/constant/color.dart';
 import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/constant/icon.dart';
+import 'package:sarisaristore/core/constant/string.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
 
@@ -28,7 +29,7 @@ class CustomItemContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Image.network(
-                    'https://raw.githubusercontent.com/mikagura12/sarisaristore/android/assets/images/potato_fries.png',
+                    '$imageDir${item.image}.png',
                     scale: 10,
                   ),
                   Text(
