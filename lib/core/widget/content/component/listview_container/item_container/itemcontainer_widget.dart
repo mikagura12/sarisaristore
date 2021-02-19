@@ -13,6 +13,23 @@ class CustomItemContainer extends StatelessWidget {
   final SizeInformation constraints;
   @override
   Widget build(BuildContext context) {
+    Image imageNullSafety() {
+      try {
+        print('------------- Image Detected -------------');
+
+        return Image.network(
+          '$imageDir${item.image}.png',
+          scale: 10,
+        );
+      } catch (e) {
+        print('------------- Null Image -------------');
+      }
+      return Image.network(
+        '${imageDir}no_image.png',
+        scale: 10,
+      );
+    }
+
     return Stack(
       children: [
         Container(
@@ -29,13 +46,9 @@ class CustomItemContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Image.network(
-                        '$imageDir${item.image}.png',
-                        scale: 10,
-                      ) ??
-                      Image.network(
-                        '${imageDir}no_image.png',
-                        scale: 10,
-                      ),
+                    '${imageDir}no_image.png',
+                    scale: 10,
+                  ),
                   Text(
                     '${item.item}',
                     style: kLoraFont(
