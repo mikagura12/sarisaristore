@@ -3,14 +3,15 @@ class Paninda {
   int price;
   String category;
   bool isFavorite;
-
-  Paninda({this.item, this.price, this.category, this.isFavorite});
+  String image;
+  Paninda({this.item, this.price, this.category, this.isFavorite, this.image});
 
   Paninda.fromJson(Map<String, dynamic> json) {
     item = json['item'];
     price = json['price'];
     category = json['category'];
     isFavorite = json['isFavorite'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,7 +20,7 @@ class Paninda {
     data['price'] = this.price;
     data['category'] = this.category;
     data['isFavorite'] = this.isFavorite;
-
+    data['image'] = this.image;
     return data;
   }
 }
