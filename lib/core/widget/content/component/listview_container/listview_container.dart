@@ -5,20 +5,20 @@ import 'package:sarisaristore/core/widget/component/responsive_container/sizeinf
 import 'item_container/itemcontainer_widget.dart';
 
 class CustomListView extends StatelessWidget {
-  CustomListView(this.constraints, {this.items});
+  CustomListView(this.constraints, {this.products});
   final SizeInformation constraints;
-  final List<Paninda> items;
+  final List<Paninda> products;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: items.length ?? 0,
+        itemCount: products.length ?? 0,
         itemBuilder: (context, i) {
           return CustomItemContainer(
             constraints,
-            item: items[i],
+            product: products[i],
           );
         },
       ),

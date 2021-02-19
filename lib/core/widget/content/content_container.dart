@@ -42,49 +42,46 @@ class _CustomContentState extends State<CustomContent> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Snacks',
-            style: kLoraFont(
-                color: kItemPriceColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
+          _Text(
+            title: 'Snacks',
           ),
           CustomListView(
             widget.constraints,
-            items: provide.snacksCategory,
+            products: provide.snacksCategory,
           ),
-          Text(
-            'Seasonings',
-            style: kLoraFont(
-                color: kItemPriceColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
+          _Text(
+            title: 'Coffee\'s',
           ),
           CustomListView(
             widget.constraints,
-            items: provide.seasoningsCategory,
+            products: provide.coffeeCategory,
           ),
-          Text(
-            'Others',
-            style: kLoraFont(
-                color: kItemPriceColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
+          _Text(
+            title: 'Others',
           ),
-          CustomListView(widget.constraints, items: provide.othersCategory),
-          Text(
-            'Favorites',
-            style: kLoraFont(
-                color: kItemPriceColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
+          CustomListView(widget.constraints, products: provide.othersCategory),
+          _Text(
+            title: 'Favorites',
           ),
           CustomListView(
             widget.constraints,
-            items: provide.isFavorite,
+            products: provide.isFavorite,
           ),
         ],
       ),
+    );
+  }
+}
+
+class _Text extends StatelessWidget {
+  _Text({this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      '$title',
+      style: kLoraFont(
+          color: kItemPriceColor, fontSize: 15, fontWeight: FontWeight.bold),
     );
   }
 }

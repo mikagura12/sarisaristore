@@ -7,29 +7,12 @@ import 'package:sarisaristore/core/model/paninda.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
 
 class CustomItemContainer extends StatelessWidget {
-  CustomItemContainer(this.constraints, {@required this.item});
-  final Paninda item;
+  CustomItemContainer(this.constraints, {@required this.product});
+  final Paninda product;
 
   final SizeInformation constraints;
   @override
   Widget build(BuildContext context) {
-    Image imageNullSafety() {
-      try {
-        print('------------- Image Detected -------------');
-
-        return Image.network(
-          '$imageDir${item.image}.png',
-          scale: 10,
-        );
-      } catch (e) {
-        print('------------- Null Image -------------');
-      }
-      return Image.network(
-        '${imageDir}no_image.png',
-        scale: 10,
-      );
-    }
-
     return Stack(
       children: [
         Container(
@@ -45,19 +28,22 @@ class CustomItemContainer extends StatelessWidget {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Image.network(
-                    '${imageDir}no_image.png',
-                    scale: 10,
+                  Image(
+                    image: NetworkImage('$imageDir${product.image}.png',
+                        scale: 10),
+                    errorBuilder: (_, __, ___) =>
+                        Image.network('${imageDir}no_image.png', scale: 10),
                   ),
                   Text(
-                    '${item.item}',
+                    '${product.item}',
+                    overflow: TextOverflow.ellipsis,
                     style: kLoraFont(
                         color: kItemTitleColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '${item.price}.00 Php',
+                    '${product.price}.00 Php',
                     style: kMontserratFont(
                       color: kItemCategoryColor,
                       fontSize: 10,
@@ -68,7 +54,7 @@ class CustomItemContainer extends StatelessWidget {
             ],
           ),
         ),
-        (item.isFavorite)
+        (product.isFavorite)
             ? _favoriteSwitch(kFavoriteOn)
             : _favoriteSwitch(kFavoriteOff),
       ],
@@ -79,7 +65,7 @@ class CustomItemContainer extends StatelessWidget {
     return GestureDetector(
       child: icon,
       onTap: () {
-        item.isFavorite = !item.isFavorite;
+        product.isFavorite = !product.isFavorite;
       },
     );
   }

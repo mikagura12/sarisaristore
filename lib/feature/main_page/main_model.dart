@@ -10,6 +10,7 @@ class MainModel extends ChangeNotifier {
   final List<Paninda> cacheStore = [];
   List<Paninda> snacksCategory = [];
   List<Paninda> seasoningsCategory = [];
+  List<Paninda> coffeeCategory = [];
   List<Paninda> othersCategory = [];
   List<Paninda> isFavorite = [];
 
@@ -28,6 +29,9 @@ class MainModel extends ChangeNotifier {
       _isFavorite(data);
     } else if (data.category.toLowerCase() == 'seasonings') {
       seasoningsCategory.add(data);
+      _isFavorite(data);
+    } else if (data.category.toLowerCase() == 'coffee') {
+      coffeeCategory.add(data);
       _isFavorite(data);
     } else {
       othersCategory.add(data);
