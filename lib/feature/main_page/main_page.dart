@@ -14,11 +14,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  MainModel model;
+  MainModel provide;
 
   @override
   void didChangeDependencies() {
-    model = Provider.of<MainModel>(
+    provide = Provider.of<MainModel>(
       context,
       listen: false,
     );
@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
     return CustomResponsive(
       builder: (context, constraints) {
         return FutureProvider<List<Paninda>>(
-          create: (_) => model.getItems(),
+          create: (_) => provide.getItems(),
           initialData: [],
           child: Consumer<List<Paninda>>(
             builder: (_, data, __) {
