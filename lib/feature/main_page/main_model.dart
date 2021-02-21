@@ -7,7 +7,7 @@ class MainModel extends ChangeNotifier {
 
   final ISariSariStoreRepository sariSariStoreRepository;
 
-  final List<Paninda> cacheStore = [];
+  List<Paninda> cacheStore = [];
   List<Paninda> snacksCategory = [];
   List<Paninda> seasoningsCategory = [];
   List<Paninda> coffeeCategory = [];
@@ -15,26 +15,53 @@ class MainModel extends ChangeNotifier {
   List<Paninda> isFavorite = [];
 
   Future<List<Paninda>> getItems() async {
+    print('------------- Getting Items in Model -------------');
+
     if (cacheStore.isEmpty) {
       var data = await sariSariStoreRepository.getItems();
       cacheStore.addAll(data);
+      notifyListeners();
     }
+    tempSearch = cacheStore;
     notifyListeners();
     return cacheStore;
   }
 
+  List<Paninda> tempSearch = [];
+  searchProduct(String searchText) {
+    if (searchText.isEmpty) {
+      print('------------- Search Bar Empty -------------');
+      notifyListeners();
+      return tempSearch = cacheStore;
+    }
+
+    tempSearch = snacksCategory
+        .where((product) => product.item.toLowerCase().contains('$searchText'))
+        .toList();
+
+    print('Results $tempSearch');
+    notifyListeners();
+  }
+
   categoryFilter(Paninda data) {
     if (data.category.toLowerCase() == 'snack') {
-      snacksCategory.add(data);
-      _isFavorite(data);
+      print('------------- Filtering Snack -------------');
+      _duplicateFilter(data, snacksCategory);
     } else if (data.category.toLowerCase() == 'seasonings') {
-      seasoningsCategory.add(data);
-      _isFavorite(data);
+      print('------------- Filtering Seasongs -------------');
+      _duplicateFilter(data, seasoningsCategory);
     } else if (data.category.toLowerCase() == 'coffee') {
-      coffeeCategory.add(data);
-      _isFavorite(data);
+      print('------------- Filtering Coffee -------------');
+      _duplicateFilter(data, coffeeCategory);
     } else {
-      othersCategory.add(data);
+      print('------------- Filtering Others -------------');
+      _duplicateFilter(data, othersCategory);
+    }
+  }
+
+  _duplicateFilter(Paninda data, List<Paninda> product) {
+    if (!seasoningsCategory.contains(data)) {
+      product.add(data);
       _isFavorite(data);
     }
   }
@@ -43,4 +70,7 @@ class MainModel extends ChangeNotifier {
     if (data.isFavorite) isFavorite.add(data);
     return data;
   }
+
+  //Separating The Category
+
 }

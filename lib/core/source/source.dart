@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sarisaristore/core/constant/string.dart';
 // import 'package:flutter/services.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
 
@@ -11,8 +12,6 @@ class SariStoreLocalDataSource implements ISariStoreLocalDataSource {
   @override
   Future<List<Paninda>> getItems() async {
     try {
-      var url =
-          'https://raw.githubusercontent.com/mikagura12/myJSON-/master/Sari%20Sari%20Store/paninda.json';
       var response = await http.get(url);
       final remoteResult = json.decode(response.body);
 

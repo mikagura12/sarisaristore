@@ -6,8 +6,8 @@ import 'package:sarisaristore/core/constant/icon.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  CustomSearchBar(this.constraints);
-
+  CustomSearchBar(this.constraints, {this.onChanged});
+  final Function(String searchText) onChanged;
   final SizeInformation constraints;
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class CustomSearchBar extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: TextFormField(
-        //TODO: Implement Controller
+      child: TextField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           icon: kSearchIcon,
           border: InputBorder.none,

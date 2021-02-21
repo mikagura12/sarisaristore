@@ -22,6 +22,7 @@ class _MainPageState extends State<MainPage> {
       context,
       listen: false,
     );
+    provide.getItems();
     super.didChangeDependencies();
   }
 
@@ -29,46 +30,42 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return CustomResponsive(
       builder: (context, constraints) {
-        return FutureProvider<List<Paninda>>(
-          create: (_) => provide.getItems(),
-          initialData: [],
-          child: Consumer<List<Paninda>>(
-            builder: (_, data, __) {
-              return Container(
-                child: Column(
-                  children: [
-                    CustomSliverAppBar(constraints),
-                    (data.isEmpty)
-                        ? Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CircularProgressIndicator(
-                                  strokeWidth: 3,
+        return Consumer<MainModel>(
+          builder: (_, data, __) {
+            return Container(
+              child: Column(
+                children: [
+                  CustomSliverAppBar(constraints),
+                  (data.tempSearch.isEmpty)
+                      ? Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CircularProgressIndicator(
+                                strokeWidth: 3,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Loading Data',
+                                style: kLoraFont(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 15,
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Loading Data',
-                                  style: kLoraFont(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        : CustomContent(
-                            constraints,
-                            items: data,
-                          )
-                  ],
-                ),
-              );
-            },
-          ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : CustomContent(
+                          constraints,
+                          items: data.tempSearch,
+                        )
+                ],
+              ),
+            );
+          },
         );
       },
     );

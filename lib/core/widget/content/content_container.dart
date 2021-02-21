@@ -17,14 +17,17 @@ class CustomContent extends StatefulWidget {
   _CustomContentState createState() => _CustomContentState();
 }
 
-class _CustomContentState extends State<CustomContent> {
+class _CustomContentState extends State<CustomContent> with ChangeNotifier {
   MainModel provide;
 
   @override
-  void didChangeDependencies() {
-    provide = Provider.of<MainModel>(context);
+  void initState() {
+    super.initState();
+    provide = Provider.of<MainModel>(
+      context,
+      listen: false,
+    );
     filtering();
-    super.didChangeDependencies();
   }
 
   //Separating The Category
