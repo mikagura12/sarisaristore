@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sarisaristore/core/constant/font.dart';
-import 'package:sarisaristore/core/model/paninda.dart';
 import 'package:sarisaristore/core/widget/appbar/sliverappbar_widget.dart';
 import 'package:sarisaristore/core/widget/component/responsive_container/responsive_widget.dart';
 import 'package:sarisaristore/core/widget/content/content_container.dart';
