@@ -7,7 +7,7 @@ class MainModel extends ChangeNotifier {
 
   final ISariSariStoreRepository sariSariStoreRepository;
 
-  List<Paninda> cacheStore = [];
+  List<Paninda> _cacheStore = [];
   List<Paninda> snacksCategory = [];
   List<Paninda> seasoningsCategory = [];
   List<Paninda> coffeeCategory = [];
@@ -17,25 +17,28 @@ class MainModel extends ChangeNotifier {
   Future<List<Paninda>> getItems() async {
     print('------------- Getting Items in Model -------------');
 
-    if (cacheStore.isEmpty) {
+    if (_cacheStore.isEmpty) {
       var data = await sariSariStoreRepository.getItems();
-      cacheStore.addAll(data);
+      _cacheStore.addAll(data);
       notifyListeners();
     }
-    tempSearch = cacheStore;
+    tempSearch = _cacheStore;
     notifyListeners();
-    return cacheStore;
+    return _cacheStore;
   }
 
   List<Paninda> tempSearch = [];
+
   searchProduct(String searchText) {
     if (searchText.isEmpty) {
       print('------------- Search Bar Empty -------------');
+      tempSearch = _cacheStore;
+
       notifyListeners();
-      return tempSearch = cacheStore;
+      return tempSearch;
     }
 
-    tempSearch = snacksCategory
+    tempSearch = _cacheStore
         .where((product) => product.item.toLowerCase().contains('$searchText'))
         .toList();
 
@@ -64,6 +67,7 @@ class MainModel extends ChangeNotifier {
       product.add(data);
       _isFavorite(data);
     }
+    return product;
   }
 
   _isFavorite(Paninda data) {

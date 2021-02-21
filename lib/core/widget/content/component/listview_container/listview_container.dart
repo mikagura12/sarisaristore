@@ -12,8 +12,10 @@ class CustomListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:
+                (constraints.orientation == Orientation.portrait) ? 3 : 6),
         itemCount: products.length ?? 0,
         itemBuilder: (context, i) {
           return CustomItemContainer(
