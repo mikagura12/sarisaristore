@@ -3,7 +3,7 @@ import 'package:sarisaristore/core/constant/color.dart';
 import 'package:sarisaristore/core/constant/font.dart';
 
 import 'package:sarisaristore/core/constant/icon.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 
 class CustomSearchBar extends StatelessWidget {
   CustomSearchBar(this.constraints, {this.onChanged});

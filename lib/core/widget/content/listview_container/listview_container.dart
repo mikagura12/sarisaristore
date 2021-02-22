@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 
 import 'item_container/itemcontainer_widget.dart';
 

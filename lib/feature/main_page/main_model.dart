@@ -28,45 +28,62 @@ class MainModel extends ChangeNotifier {
   }
 
   List<Paninda> tempSearch = [];
-  searchProduct(String searchText) {
+
+  List<Paninda> searchProduct(String searchText) {
     if (searchText.isEmpty) {
       print('------------- Search Bar Empty -------------');
       notifyListeners();
       return tempSearch = cacheStore;
     }
 
-    tempSearch = snacksCategory
-        .where((product) => product.item.toLowerCase().contains('$searchText'))
+    resetProducts();
+
+    tempSearch = cacheStore
+        .where((product) =>
+            product.item.toLowerCase().contains('${searchText.toLowerCase()}'))
         .toList();
 
-    print('Results $tempSearch');
     notifyListeners();
+    return tempSearch;
   }
 
-  categoryFilter(Paninda data) {
+  void resetProducts() {
+    snacksCategory = [];
+    seasoningsCategory = [];
+    coffeeCategory = [];
+    othersCategory = [];
+    isFavorite = [];
+  }
+
+  List<Paninda> categoryFilter(Paninda data) {
     if (data.category.toLowerCase() == 'snack') {
-      print('------------- Filtering Snack -------------');
+      // print('------------- Filtering Snack -------------');
       _duplicateFilter(data, snacksCategory);
+      return snacksCategory;
     } else if (data.category.toLowerCase() == 'seasonings') {
-      print('------------- Filtering Seasongs -------------');
+      // print('------------- Filtering Seasongs -------------');
       _duplicateFilter(data, seasoningsCategory);
+      return seasoningsCategory;
     } else if (data.category.toLowerCase() == 'coffee') {
-      print('------------- Filtering Coffee -------------');
+      // print('------------- Filtering Coffee -------------');
       _duplicateFilter(data, coffeeCategory);
+      return coffeeCategory;
     } else {
-      print('------------- Filtering Others -------------');
+      // print('------------- Filtering Others -------------');
       _duplicateFilter(data, othersCategory);
+      return othersCategory;
     }
   }
 
-  _duplicateFilter(Paninda data, List<Paninda> product) {
-    if (!seasoningsCategory.contains(data)) {
+  List<Paninda> _duplicateFilter(Paninda data, List<Paninda> product) {
+    if (!product.contains(data)) {
       product.add(data);
       _isFavorite(data);
     }
+    return product;
   }
 
-  _isFavorite(Paninda data) {
+  Paninda _isFavorite(Paninda data) {
     if (data.isFavorite) isFavorite.add(data);
     return data;
   }

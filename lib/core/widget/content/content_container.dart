@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sarisaristore/core/constant/color.dart';
 import 'package:sarisaristore/core/constant/font.dart';
-import 'package:sarisaristore/core/model/paninda.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 import 'package:sarisaristore/feature/main_page/main_model.dart';
 
-import 'component/listview_container/listview_container.dart';
+import 'listview_container/listview_container.dart';
 
 class CustomContent extends StatefulWidget {
-  CustomContent(this.constraints, {@required this.items});
-  final List<Paninda> items;
+  CustomContent(this.constraints, {@required this.provide});
+  final MainModel provide;
   final SizeInformation constraints;
 
   @override
@@ -18,25 +16,6 @@ class CustomContent extends StatefulWidget {
 }
 
 class _CustomContentState extends State<CustomContent> with ChangeNotifier {
-  MainModel provide;
-
-  @override
-  void initState() {
-    super.initState();
-    provide = Provider.of<MainModel>(
-      context,
-      listen: false,
-    );
-    filtering();
-  }
-
-  //Separating The Category
-  filtering() {
-    for (var item in widget.items) {
-      provide.categoryFilter(item);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,25 +29,28 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
           ),
           CustomListView(
             widget.constraints,
-            products: provide.snacksCategory,
+            products: widget.provide.snacksCategory,
           ),
           _Text(
             title: 'Coffee\'s',
           ),
           CustomListView(
             widget.constraints,
-            products: provide.coffeeCategory,
+            products: widget.provide.coffeeCategory,
           ),
           _Text(
             title: 'Others',
           ),
-          CustomListView(widget.constraints, products: provide.othersCategory),
+          CustomListView(
+            widget.constraints,
+            products: widget.provide.othersCategory,
+          ),
           _Text(
             title: 'Favorites',
           ),
           CustomListView(
             widget.constraints,
-            products: provide.isFavorite,
+            products: widget.provide.isFavorite,
           ),
         ],
       ),

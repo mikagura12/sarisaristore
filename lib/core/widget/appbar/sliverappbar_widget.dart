@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/appbar/searchbar/searchbar_widget.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 import 'package:sarisaristore/feature/main_page/main_model.dart';
-
-import 'component/searchbar_widget.dart';
 
 class CustomSliverAppBar extends StatefulWidget {
   final SizeInformation constraints;

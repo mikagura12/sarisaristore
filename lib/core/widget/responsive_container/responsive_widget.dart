@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 
 class CustomResponsive extends StatelessWidget {
   final Widget Function(BuildContext context, SizeInformation constraints)

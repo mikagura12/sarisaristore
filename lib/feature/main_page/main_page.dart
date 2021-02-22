@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/widget/appbar/sliverappbar_widget.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/responsive_widget.dart';
 import 'package:sarisaristore/core/widget/content/content_container.dart';
+import 'package:sarisaristore/core/widget/responsive_container/responsive_widget.dart';
 
 import 'main_model.dart';
 
@@ -31,6 +31,9 @@ class _MainPageState extends State<MainPage> {
       builder: (context, constraints) {
         return Consumer<MainModel>(
           builder: (_, data, __) {
+            for (var item in data.tempSearch) {
+              provide.categoryFilter(item);
+            }
             return Container(
               child: Column(
                 children: [

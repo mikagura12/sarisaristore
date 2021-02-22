@@ -4,7 +4,7 @@ import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/constant/icon.dart';
 import 'package:sarisaristore/core/constant/string.dart';
 import 'package:sarisaristore/core/model/paninda.dart';
-import 'package:sarisaristore/core/widget/component/responsive_container/sizeinformation_model.dart';
+import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 
 class CustomItemContainer extends StatelessWidget {
   CustomItemContainer(this.constraints, {@required this.product});
