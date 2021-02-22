@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage> {
                         )
                       : CustomContent(
                           constraints,
-                          items: data.tempSearch,
+                          provide: data,
                         )
                 ],
               ),
