@@ -4,6 +4,7 @@ import 'core/source/source.dart';
 import 'core/repositories/paninda_repository.dart';
 import 'feature/main_page/main_model.dart';
 import 'feature/main_page/main_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       home: ChangeNotifierProvider(
         create: (_) => MainModel(sariSariStoreRepository),
