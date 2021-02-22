@@ -16,6 +16,7 @@ class CustomResponsive extends StatelessWidget {
     SizeInformation information = SizeInformation(width, height, orientation);
 
     return Scaffold(
+      appBar: appBar ?? null,
       resizeToAvoidBottomInset: false,
       body: builder(context, information),
     );

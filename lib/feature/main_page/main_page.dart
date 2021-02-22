@@ -49,12 +49,15 @@ class _MainPageState extends State<MainPage> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                'Loading Data',
-                                style: kLoraFont(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 15,
+                              RaisedButton(
+                                onPressed: () => data.getItems(),
+                                child: Text(
+                                  'Try Again',
+                                  style: kLoraFont(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                             ],

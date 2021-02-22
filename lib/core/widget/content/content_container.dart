@@ -3,8 +3,7 @@ import 'package:sarisaristore/core/constant/color.dart';
 import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/widget/responsive_container/sizeinformation_model.dart';
 import 'package:sarisaristore/feature/main_page/main_model.dart';
-
-import 'listview_container/listview_container.dart';
+import 'main_page/listview_container/listview_container.dart';
 
 class CustomContent extends StatefulWidget {
   CustomContent(this.constraints, {@required this.provide});
@@ -30,6 +29,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
           CustomListView(
             widget.constraints,
             products: widget.provide.snacksCategory,
+            provide: widget.provide,
           ),
           _Text(
             title: 'Coffee\'s',
@@ -37,6 +37,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
           CustomListView(
             widget.constraints,
             products: widget.provide.coffeeCategory,
+            provide: widget.provide,
           ),
           _Text(
             title: 'Others',
@@ -44,6 +45,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
           CustomListView(
             widget.constraints,
             products: widget.provide.othersCategory,
+            provide: widget.provide,
           ),
           _Text(
             title: 'Favorites',
@@ -51,6 +53,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
           CustomListView(
             widget.constraints,
             products: widget.provide.isFavorite,
+            provide: widget.provide,
           ),
         ],
       ),
