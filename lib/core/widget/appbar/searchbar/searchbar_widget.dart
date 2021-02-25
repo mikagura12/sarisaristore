@@ -30,7 +30,7 @@ class CustomSearchBar extends StatelessWidget {
         decoration: InputDecoration(
           icon: kSearchIcon,
           border: InputBorder.none,
-          hintStyle: kMontserratFont(color: kItemCategoryColor),
+          hintStyle: kSmallFont(color: kItemCategoryColor),
           hintText: 'Find Items...',
         ),
       ),

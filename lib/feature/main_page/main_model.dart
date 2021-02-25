@@ -9,7 +9,6 @@ class MainModel extends ChangeNotifier {
 
   List<Paninda> cacheStore = [];
   List<Paninda> snacksCategory = [];
-  List<Paninda> seasoningsCategory = [];
   List<Paninda> coffeeCategory = [];
   List<Paninda> othersCategory = [];
   List<Paninda> isFavorite = [];
@@ -49,10 +48,8 @@ class MainModel extends ChangeNotifier {
 
   void resetProducts() {
     snacksCategory = [];
-    seasoningsCategory = [];
     coffeeCategory = [];
     othersCategory = [];
-    isFavorite = [];
   }
 
   List<Paninda> categoryFilter(Paninda data) {
@@ -60,10 +57,6 @@ class MainModel extends ChangeNotifier {
       // print('------------- Filtering Snack -------------');
       _duplicateFilter(data, snacksCategory);
       return snacksCategory;
-    } else if (data.category.toLowerCase() == 'seasonings') {
-      // print('------------- Filtering Seasongs -------------');
-      _duplicateFilter(data, seasoningsCategory);
-      return seasoningsCategory;
     } else if (data.category.toLowerCase() == 'coffee') {
       // print('------------- Filtering Coffee -------------');
       _duplicateFilter(data, coffeeCategory);

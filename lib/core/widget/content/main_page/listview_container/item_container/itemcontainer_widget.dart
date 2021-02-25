@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sarisaristore/core/constant/color.dart';
 import 'package:sarisaristore/core/constant/font.dart';
 import 'package:sarisaristore/core/constant/icon.dart';
@@ -40,14 +39,14 @@ class CustomItemContainer extends StatelessWidget {
                 Text(
                   '${product.item}',
                   overflow: TextOverflow.ellipsis,
-                  style: kLoraFont(
+                  style: kBigFont(
                       color: kItemTitleColor,
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
                   '${product.price}.00 Php',
-                  style: kMontserratFont(
+                  style: kSmallFont(
                     color: kItemCategoryColor,
                     fontSize: 10,
                   ),

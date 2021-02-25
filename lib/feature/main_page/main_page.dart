@@ -51,11 +51,12 @@ class _MainPageState extends State<MainPage> {
                               ),
                               RaisedButton(
                                 onPressed: () => data.getItems(),
+                                color: Colors.blueAccent,
                                 child: Text(
                                   'Try Again',
-                                  style: kLoraFont(
+                                  style: kBigFont(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.blue,
+                                    color: Colors.black,
                                     fontSize: 15,
                                   ),
                                 ),

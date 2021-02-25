@@ -7,7 +7,6 @@ abstract class ISariSariStoreRepository {
 
 class SariSariStoreRepository implements ISariSariStoreRepository {
   SariSariStoreRepository(this.localDataSource);
-
   final ISariStoreLocalDataSource localDataSource;
 
   @override

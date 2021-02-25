@@ -7,6 +7,8 @@ import 'feature/main_page/main_page.dart';
 import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 

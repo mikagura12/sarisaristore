@@ -19,7 +19,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
   Widget build(BuildContext context) {
     return Container(
       height: widget.constraints.height * .75,
-      padding: EdgeInsets.only(left: 20, bottom: 20, top: 20),
+      padding: EdgeInsets.only(bottom: 20, top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,7 +48,7 @@ class _CustomContentState extends State<CustomContent> with ChangeNotifier {
             provide: widget.provide,
           ),
           _Text(
-            title: 'Favorites',
+            title: 'Favorite\'s',
           ),
           CustomListView(
             widget.constraints,
@@ -66,10 +66,13 @@ class _Text extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '$title',
-      style: kLoraFont(
-          color: kItemPriceColor, fontSize: 15, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: EdgeInsets.only(left: 20),
+      child: Text(
+        '$title',
+        style: kBigFont(
+            color: kItemPriceColor, fontSize: 15, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }

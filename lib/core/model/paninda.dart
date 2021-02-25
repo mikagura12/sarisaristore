@@ -1,6 +1,7 @@
 class Paninda {
   String item;
   int price;
+  int prevPrice;
   String category;
   bool isFavorite;
   String image;
@@ -9,12 +10,13 @@ class Paninda {
   Paninda.fromJson(Map<String, dynamic> json) {
     item = json['item'];
     price = json['price'];
+    prevPrice = json['prevPrice'];
     category = json['category'];
     isFavorite = json['isFavorite'];
     image = json['image'];
   }
 
-  Map<String, dynamic> toJson() {
+  /* Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['item'] = this.item;
     data['price'] = this.price;
@@ -22,5 +24,5 @@ class Paninda {
     data['isFavorite'] = this.isFavorite;
     data['image'] = this.image;
     return data;
-  }
+  } */
 }

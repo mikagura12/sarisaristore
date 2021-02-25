@@ -12,3 +12,5 @@ FaIcon kFavoriteOn = FaIcon(
   FontAwesomeIcons.star,
   color: Colors.yellow,
 );
+
+FaIcon kBackHome = FaIcon(FontAwesomeIcons.chevronLeft);
