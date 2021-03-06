@@ -39,9 +39,9 @@ class CustomItemContainer extends StatelessWidget {
                 Text(
                   '${product.item}',
                   overflow: TextOverflow.ellipsis,
-                  style: kBigFont(
+                  style: kSmallFont(
                       color: kItemTitleColor,
-                      fontSize: 15,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(

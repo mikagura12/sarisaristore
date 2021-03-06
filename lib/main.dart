@@ -36,6 +36,7 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
     ]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
         create: (_) => MainModel(sariSariStoreRepository),
         child: MainPage(),

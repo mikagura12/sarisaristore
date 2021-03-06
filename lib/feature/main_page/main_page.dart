@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
                               CircularProgressIndicator(
                                 strokeWidth: 3,
                               ),
-                              SizedBox(
+                              /* SizedBox(
                                 height: 10,
                               ),
                               RaisedButton(
@@ -60,7 +60,7 @@ class _MainPageState extends State<MainPage> {
                                     fontSize: 15,
                                   ),
                                 ),
-                              ),
+                              ), */
                             ],
                           ),
                         )
