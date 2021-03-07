@@ -6,6 +6,7 @@ import 'feature/main_page/main_model.dart';
 import 'feature/main_page/main_page.dart';
 import 'package:flutter/services.dart';
 
+//mikagura12 test
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
